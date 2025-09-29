@@ -1,0 +1,439 @@
+/* Footer Styles */
+.footer {
+    background: var(--darker-bg);
+    border-top: 1px solid rgba(139, 92, 246, 0.2);
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.footer .container {
+    position: relative;
+    z-index: 1;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: flex-start;
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+}
+
+.footer-brand {
+    opacity: 0;
+    animation: fadeInLeft 0.8s ease-out 0.2s forwards;
+    padding: var(--spacing-lg);
+    margin: -var(--spacing-lg);
+}
+
+.footer-logo {
+    height: 140px;
+    width: auto;
+    margin-bottom: var(--spacing-md);
+    transition: all 0.3s ease;
+    position: relative;
+    filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.4));
+}
+
+.footer-logo:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.7));
+}
+
+/* Subtle footer logo animations */
+.footer-brand {
+    position: relative;
+    overflow: visible;
+}
+
+/* Very gentle glow effect */
+.footer-brand::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 105%;
+    height: 105%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 107, 107, 0.04) 0%,
+        transparent 60%
+    );
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: footerSubtleGlow 7s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Soft hover enhancement */
+.footer-brand:hover::before {
+    background: radial-gradient(
+        circle,
+        rgba(255, 107, 107, 0.06) 0%,
+        rgba(139, 92, 246, 0.03) 40%,
+        transparent 60%
+    );
+    animation-duration: 3.5s;
+}
+
+@keyframes footerSubtleGlow {
+    0%, 100% {
+        opacity: 0.4;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(1.01);
+    }
+}
+
+.footer-logo {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-brand p {
+    color: var(--gray-text);
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-medium);
+    margin: 0;
+}
+
+/* Contact Info Section */
+.footer-contact-info {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+.footer-contact-info h4 {
+    color: var(--light-text);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Social Media Section */
+.footer-social {
+    opacity: 0;
+    animation: fadeInRight 0.8s ease-out 0.6s forwards;
+}
+
+.footer-social h4 {
+    color: var(--light-text);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: var(--font-weight-bold);
+}
+
+.footer-social p {
+    color: var(--gray-text);
+    margin-bottom: var(--spacing-lg);
+    font-size: 1rem;
+}
+
+/* Contact Information */
+.contact-info {
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: rgba(139, 92, 246, 0.1);
+    transform: translateX(5px);
+}
+
+.contact-item i {
+    color: var(--primary-purple);
+    font-size: 1.1rem;
+    min-width: 20px;
+}
+
+.contact-item a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--primary-purple);
+}
+
+.contact-methods {
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Social Media */
+.social-media {
+    text-align: right;
+}
+
+.social-media h5 {
+    color: var(--light-text);
+    font-size: 1rem;
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-sm);
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-width: 140px;
+}
+
+.social-btn span {
+    color: white;
+    font-weight: var(--font-weight-medium);
+    font-size: 0.95rem;
+}
+
+.social-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+    z-index: 0;
+}
+
+.social-btn:hover::before {
+    transform: scale(1);
+}
+
+.social-btn i {
+    font-size: 1.3rem;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+}
+
+.social-btn:hover i {
+    transform: scale(1.1);
+}
+
+/* Instagram */
+.social-btn.instagram {
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    color: white;
+}
+
+.social-btn.instagram::before {
+    background: linear-gradient(45deg, #833ab4, #fd1d1d);
+}
+
+.social-btn.instagram:hover {
+    box-shadow: 0 8px 25px rgba(225, 48, 108, 0.4);
+}
+
+/* Facebook */
+.social-btn.facebook {
+    background: linear-gradient(45deg, #1877f2, #42a5f5);
+    color: white;
+}
+
+.social-btn.facebook::before {
+    background: linear-gradient(45deg, #1565c0, #1877f2);
+}
+
+.social-btn.facebook:hover {
+    box-shadow: 0 8px 25px rgba(24, 119, 242, 0.4);
+}
+
+/* WhatsApp Button Enhancement */
+.whatsapp-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.whatsapp-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.whatsapp-btn:hover::after {
+    left: 100%;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: var(--light-text);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-semibold);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+.contact-btn:hover::before {
+    left: 100%;
+}
+
+.contact-btn i {
+    font-size: 1.25rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(139, 92, 246, 0.1);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
+.footer-bottom p {
+    color: var(--gray-text);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2xl);
+        text-align: center;
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    .footer-contact {
+        text-align: center;
+    }
+    
+    .footer-contact p {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .contact-item {
+        justify-content: center;
+    }
+    
+    .contact-item:hover {
+        transform: translateY(-2px);
+    }
+    
+    .contact-methods {
+        justify-content: center;
+    }
+    
+    .social-media {
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .footer-logo {
+        height: 100px;
+    }
+    
+    .footer-brand {
+        padding: var(--spacing-md);
+        margin: -var(--spacing-sm);
+    }
+    
+    /* Reduce animation intensity on mobile */
+    .footer-brand::after {
+        animation-duration: 5s;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        gap: var(--spacing-lg);
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .contact-btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.9rem;
+    }
+    
+    .contact-btn i {
+        font-size: 1rem;
+    }
+    
+    .footer-contact h4 {
+        font-size: 1.125rem;
+    }
+    
+    .footer-brand p {
+        font-size: 1rem;
+    }
+}
