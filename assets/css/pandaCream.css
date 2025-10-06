@@ -1,0 +1,256 @@
+/* PandaCream Page Styles */
+
+/* Hero Section Específico para PandaCream */
+.panda-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+    overflow: hidden;
+    padding: 120px 0 80px 0;
+}
+
+.panda-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.panda-hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Contenedor para texto e imagen lado a lado */
+.panda-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: flex-start;
+    width: 100%;
+    order: 2;
+}
+
+.panda-hero-content {
+    opacity: 0;
+    animation: fadeInLeft 1s ease-out 0.3s forwards;
+    text-align: left;
+}
+
+/* Título centrado sobre todo el contenido */
+.panda-hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-xl);
+    color: var(--text-primary);
+    text-align: center;
+    width: 100%;
+    order: 1;
+}
+
+.panda-title-line {
+    display: block;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: var(--font-weight-semibold);
+    color: var(--gray-text);
+    margin-bottom: var(--spacing-xs);
+}
+
+.panda-title-highlight {
+    display: block;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: var(--font-weight-extrabold);
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-coral));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+}
+
+.panda-hero-subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+    text-align: left;
+    margin-top: var(--spacing-lg);
+}
+
+.panda-hero-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--spacing-3xl);
+    width: 100%;
+}
+
+.panda-hero-visual {
+    position: relative;
+    opacity: 0;
+    animation: fadeInRight 1s ease-out 0.7s forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    padding-top: var(--spacing-lg);
+}
+
+.panda-hero-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.panda-hero-image:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+/* Botones específicos para PandaCream */
+.panda-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-semibold);
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.panda-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.panda-btn:hover::before {
+    left: 100%;
+}
+
+.panda-btn-primary {
+    background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+    color: var(--light-text);
+    box-shadow: var(--shadow-purple);
+}
+
+.panda-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.4);
+}
+
+.panda-btn-secondary {
+    background: linear-gradient(135deg, var(--accent-coral), var(--accent-orange));
+    color: var(--light-text);
+    box-shadow: var(--shadow-coral);
+}
+
+.panda-btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(255, 107, 107, 0.4);
+}
+
+/* Scroll Down Arrow específico */
+.panda-scroll-down {
+    position: absolute;
+    bottom: var(--spacing-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1.5s forwards;
+}
+
+.panda-scroll-arrow {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--primary-purple);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-purple);
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.panda-scroll-arrow:hover {
+    background: var(--primary-purple);
+    color: var(--light-text);
+    transform: scale(1.1);
+}
+
+.panda-scroll-text {
+    font-size: 0.875rem;
+    color: var(--gray-text);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .panda-content-wrapper {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .panda-hero-visual {
+        order: -1;
+    }
+    
+    .panda-hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .panda-hero-cta {
+        margin-top: var(--spacing-xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .panda-hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .panda-btn {
+        width: 100%;
+        max-width: 280px;
+    }
+}

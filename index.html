@@ -147,6 +147,23 @@
         </nav>
     </header>
 
+    <!-- Ajuste dinámico para evitar superposición del header sobre el contenido -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.querySelector('.header');
+            const main = document.querySelector('main');
+
+            function adjustMainOffset() {
+                if (!header || !main) return;
+                const headerHeight = header.offsetHeight;
+                main.style.paddingTop = headerHeight + 'px';
+            }
+
+            adjustMainOffset();
+            window.addEventListener('resize', adjustMainOffset);
+        });
+    </script>
+
     <!-- El contenido principal debe estar envuelto en una etiqueta <main> con el id correspondiente -->
     <main id="main-content">
     
@@ -317,7 +334,8 @@
                         <img src="assets/img/pandacream.PNG" alt="Panda Cream - Proyecto web desarrollado por Elevate Web">
                     </div>
                     <div class="portfolio-content">
-                        <h3>Panda Cream</h3>
+                        <a href="pandaCream.html" class="btn
+                        btn-secondary portfolio-btn" target="_blank">Panda Cream</a>
                         <a href="https://www.pandacream.cl" class="btn btn-secondary portfolio-btn" target="_blank">Visitar Sitio</a>
                     </div>
                 </div>

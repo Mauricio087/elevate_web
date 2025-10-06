@@ -109,6 +109,21 @@
     animation: pulse 3s ease-in-out infinite;
 }
 
+.hero-image-display {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image-display:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
 .floating-elements {
     position: absolute;
     width: 100%;
