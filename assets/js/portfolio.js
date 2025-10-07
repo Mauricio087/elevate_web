@@ -76,20 +76,23 @@ document.addEventListener('DOMContentLoaded', function() {
         // Click effect for mobile
         card.addEventListener('click', function(e) {
             if (window.innerWidth <= 768) {
-                e.preventDefault();
-                
-                // Add click animation
-                card.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    card.style.transform = 'scale(1)';
-                }, 150);
-                
-                // Show button with animation
-                if (button) {
-                    button.style.transform = 'scale(1.05)';
+                // Only prevent default if clicking on the card itself, not on buttons
+                if (!e.target.closest('.portfolio-btn')) {
+                    e.preventDefault();
+                    
+                    // Add click animation
+                    card.style.transform = 'scale(0.95)';
                     setTimeout(() => {
-                        button.style.transform = 'scale(1)';
-                    }, 200);
+                        card.style.transform = 'scale(1)';
+                    }, 150);
+                    
+                    // Show button with animation
+                    if (button) {
+                        button.style.transform = 'scale(1.05)';
+                        setTimeout(() => {
+                            button.style.transform = 'scale(1)';
+                        }, 200);
+                    }
                 }
             }
         });

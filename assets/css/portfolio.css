@@ -260,6 +260,11 @@
     .portfolio-btn {
         padding: 8px 16px;
         font-size: 0.8rem;
+        min-height: 44px; /* Improved touch target for mobile */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        touch-action: manipulation; /* Prevents zoom on double-tap */
     }
 }
 
@@ -299,6 +304,11 @@
     .portfolio-btn {
         padding: 10px 20px;
         font-size: 0.85rem;
+        min-height: 44px; /* Improved touch target for mobile */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        touch-action: manipulation; /* Prevents zoom on double-tap */
     }
 }
 
