@@ -348,6 +348,12 @@
     .portfolio-btn {
         padding: 11px 22px;
         font-size: 0.9rem;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
     }
 }
 
@@ -387,6 +393,12 @@
     .portfolio-btn {
         padding: 12px 24px;
         font-size: 0.95rem;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
     }
 }
 
@@ -426,6 +438,12 @@
     .portfolio-btn {
         padding: 12px 24px;
         font-size: 1rem;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
     }
 }
 

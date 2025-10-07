@@ -32,45 +32,51 @@ document.addEventListener('DOMContentLoaded', function() {
     // Enhanced Hover Effects
     portfolioCards.forEach(card => {
         const image = card.querySelector('.portfolio-image img');
-        const button = card.querySelector('.portfolio-btn');
+        const buttons = card.querySelectorAll('.portfolio-btn'); // Support multiple buttons
         
-        // Mouse enter effect
+        // Mouse enter effect (only for desktop/tablet)
         card.addEventListener('mouseenter', function() {
-            // Add subtle glow effect to other cards
-            portfolioCards.forEach(otherCard => {
-                if (otherCard !== card) {
-                    otherCard.style.opacity = '0.7';
-                    otherCard.style.transform = 'scale(0.98)';
-                }
-            });
-            
-            // Add ripple effect to button
-            if (button && !button.querySelector('.ripple')) {
-                const ripple = document.createElement('span');
-                ripple.classList.add('ripple');
-                ripple.style.cssText = `
-                    position: absolute;
-                    border-radius: 50%;
-                    background: rgba(255, 255, 255, 0.6);
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    pointer-events: none;
-                `;
-                button.appendChild(ripple);
+            if (window.innerWidth > 768) {
+                // Add subtle glow effect to other cards
+                portfolioCards.forEach(otherCard => {
+                    if (otherCard !== card) {
+                        otherCard.style.opacity = '0.7';
+                        otherCard.style.transform = 'scale(0.98)';
+                    }
+                });
                 
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
+                // Add ripple effect to buttons
+                buttons.forEach(button => {
+                    if (button && !button.querySelector('.ripple')) {
+                        const ripple = document.createElement('span');
+                        ripple.classList.add('ripple');
+                        ripple.style.cssText = `
+                            position: absolute;
+                            border-radius: 50%;
+                            background: rgba(255, 255, 255, 0.6);
+                            transform: scale(0);
+                            animation: ripple 0.6s linear;
+                            pointer-events: none;
+                        `;
+                        button.appendChild(ripple);
+                        
+                        setTimeout(() => {
+                            ripple.remove();
+                        }, 600);
+                    }
+                });
             }
         });
         
-        // Mouse leave effect
+        // Mouse leave effect (only for desktop/tablet)
         card.addEventListener('mouseleave', function() {
-            // Reset other cards
-            portfolioCards.forEach(otherCard => {
-                otherCard.style.opacity = '1';
-                otherCard.style.transform = 'scale(1)';
-            });
+            if (window.innerWidth > 768) {
+                // Reset other cards
+                portfolioCards.forEach(otherCard => {
+                    otherCard.style.opacity = '1';
+                    otherCard.style.transform = 'scale(1)';
+                });
+            }
         });
         
         // Click effect for mobile
@@ -86,14 +92,46 @@ document.addEventListener('DOMContentLoaded', function() {
                         card.style.transform = 'scale(1)';
                     }, 150);
                     
-                    // Show button with animation
-                    if (button) {
-                        button.style.transform = 'scale(1.05)';
-                        setTimeout(() => {
-                            button.style.transform = 'scale(1)';
-                        }, 200);
-                    }
+                    // Show buttons with animation
+                    buttons.forEach(button => {
+                        if (button) {
+                            button.style.transform = 'scale(1.05)';
+                            setTimeout(() => {
+                                button.style.transform = 'scale(1)';
+                            }, 200);
+                        }
+                    });
                 }
+            }
+        });
+        
+        // Ensure buttons work on all screen sizes
+        buttons.forEach(button => {
+            if (button) {
+                // Add click handler for better reliability
+                button.addEventListener('click', function(e) {
+                    // Ensure the click event propagates normally
+                    e.stopPropagation();
+                    
+                    // Add visual feedback for all screen sizes
+                    button.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        button.style.transform = 'scale(1)';
+                    }, 100);
+                });
+                
+                // Add touch support for mobile devices
+                button.addEventListener('touchstart', function(e) {
+                    e.stopPropagation();
+                    button.style.transform = 'scale(0.95)';
+                });
+                
+                button.addEventListener('touchend', function(e) {
+                    e.stopPropagation();
+                    setTimeout(() => {
+                        button.style.transform = 'scale(1)';
+                    }, 100);
+                });
             }
         });
     });
